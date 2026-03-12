@@ -26,3 +26,13 @@ class Client(models.Model):
 
     def __str__(self):
         return self.full_name
+
+class Pedido(models.Model):
+    cliente = models.ForeignKey(Client, on_delete=models.CASCADE)
+    data = models.DateTimeField(auto_now_add=True)
+
+class Item_pedido(models.Model):
+    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    produto = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantidade = models.IntegerField()
+    data = models.DateTimeField(auto_now_add=True)
