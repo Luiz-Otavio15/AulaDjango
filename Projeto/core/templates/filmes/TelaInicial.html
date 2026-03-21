@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Do Brasil</title>
+    <link rel="shortcut icon" href="{% static 'filmes/logo/290fa2_091c2fe7a16b4f218c18b4d5305b2173_mv2-removebg-preview.png'%}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'filmes/css/style.css' %}">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="cabecalho-titulo"> 
+            <h1>Cinema Do Brasil</h1>
+        </div>
+    </header>
+
+    <div class="card_base">
+        {% for filme in filmes %}
+        <div class="card_principal">
+            {% if filme.imagem %}
+            <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}">
+            {% endif%}
+
+            <h3>{{ filme.titulo}}</h3>
+            <br>
+            <p>{{ filme.descricao}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    
+</body>
+</html>
